@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +10,212 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Tic_tac_toe_Game" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Игра крестики-нолики" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t4M-IV-QXf">
+                                <rect key="frame" x="32.5" y="20" width="310.5" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Выберите, кто ходит первым" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eA9-4T-j2k">
+                                <rect key="frame" x="71.5" y="64" width="232" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="lhS-N2-eAU">
+                                <rect key="frame" x="87.5" y="100.5" width="200" height="38.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="8Xd-7N-5Mb"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="" image="o.circle.fill" catalog="system"/>
+                                    <segment title="" image="xmark.circle.fill" catalog="system"/>
+                                </segments>
+                                <connections>
+                                    <action selector="changeFigure:" destination="BYZ-38-t0r" eventType="valueChanged" id="Rd1-n0-a4R"/>
+                                </connections>
+                            </segmentedControl>
+                            <view contentMode="scaleToFill" semanticContentAttribute="playback" translatesAutoresizingMaskIntoConstraints="NO" id="yN2-i2-Bz2">
+                                <rect key="frame" x="8" y="154" width="359" height="359"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="359" id="PdI-aM-rXi"/>
+                                    <constraint firstAttribute="width" constant="359" id="SeT-aE-xEy"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="FdV-w0-MRV">
+                                <rect key="frame" x="8" y="154" width="359" height="359"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="uMu-wT-eyN">
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="117.5"/>
+                                        <subviews>
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y2n-rC-zR7">
+                                                <rect key="frame" x="0.0" y="0.0" width="117.5" height="117.5"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                                <state key="normal">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="60"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="button1Pressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="F30-GZ-86B"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MNB-n2-mLb">
+                                                <rect key="frame" x="120.5" y="0.0" width="118" height="117.5"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <state key="normal">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="60"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="button1Pressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ts2-vv-BPz"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OjH-h1-qwX">
+                                                <rect key="frame" x="241.5" y="0.0" width="117.5" height="117.5"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <state key="normal">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="60"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="button1Pressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jPE-yu-fmU"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="AbL-7m-WTb">
+                                        <rect key="frame" x="0.0" y="120.5" width="359" height="118"/>
+                                        <subviews>
+                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mF1-ye-MeN">
+                                                <rect key="frame" x="0.0" y="0.0" width="117.5" height="118"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <state key="normal">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="60"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="button1Pressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4Xe-JX-YUz"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tSQ-7s-fsB">
+                                                <rect key="frame" x="120.5" y="0.0" width="118" height="118"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <state key="normal">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="60"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="button1Pressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ph9-eD-G3i"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aAf-gq-yxd">
+                                                <rect key="frame" x="241.5" y="0.0" width="117.5" height="118"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <state key="normal">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="60"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="button1Pressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1K4-Dw-gMV"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="OT4-JM-Uay">
+                                        <rect key="frame" x="0.0" y="241.5" width="359" height="117.5"/>
+                                        <subviews>
+                                            <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0x9-tA-Pgh">
+                                                <rect key="frame" x="0.0" y="0.0" width="117.5" height="117.5"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <state key="normal">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="60"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="button1Pressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2DF-EF-6dz"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="emC-dP-tpM">
+                                                <rect key="frame" x="120.5" y="0.0" width="118" height="117.5"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <state key="normal">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="60"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="button1Pressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2lu-j2-rLd"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4iV-aG-y7o">
+                                                <rect key="frame" x="241.5" y="0.0" width="117.5" height="117.5"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <state key="normal">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="60"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="button1Pressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6LN-3M-yG3"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="359" id="azK-yA-qBi"/>
+                                    <constraint firstAttribute="width" constant="359" id="dxO-Yp-FOf"/>
+                                </constraints>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bqf-Ms-KLB">
+                                <rect key="frame" x="158" y="529" width="59.5" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SOx-NS-Z3g">
+                                <rect key="frame" x="152.5" y="567" width="70" height="30"/>
+                                <state key="normal" title="Play again"/>
+                                <connections>
+                                    <action selector="playAgainButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BnD-Ur-G1g"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="SOx-NS-Z3g" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0Nv-MT-g5E"/>
+                            <constraint firstItem="SOx-NS-Z3g" firstAttribute="top" secondItem="Bqf-Ms-KLB" secondAttribute="bottom" constant="8" id="2FR-ik-Jmf"/>
+                            <constraint firstItem="Bqf-Ms-KLB" firstAttribute="top" secondItem="yN2-i2-Bz2" secondAttribute="bottom" constant="16" id="5LG-CY-ciV"/>
+                            <constraint firstItem="yN2-i2-Bz2" firstAttribute="top" secondItem="lhS-N2-eAU" secondAttribute="bottom" constant="16" id="6FU-IO-Op2"/>
+                            <constraint firstItem="FdV-w0-MRV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="9hM-tZ-7QK"/>
+                            <constraint firstItem="eA9-4T-j2k" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Bz7-66-P7o"/>
+                            <constraint firstItem="eA9-4T-j2k" firstAttribute="top" secondItem="t4M-IV-QXf" secondAttribute="bottom" constant="8" id="EjL-nQ-5B9"/>
+                            <constraint firstItem="FdV-w0-MRV" firstAttribute="centerY" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="KBs-e5-BY1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FdV-w0-MRV" secondAttribute="trailing" constant="8" id="NuM-r5-UuI"/>
+                            <constraint firstItem="t4M-IV-QXf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="Vy1-uy-HSF"/>
+                            <constraint firstItem="Bqf-Ms-KLB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Zhf-ON-RnF"/>
+                            <constraint firstItem="lhS-N2-eAU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ceq-bT-0Gr"/>
+                            <constraint firstItem="t4M-IV-QXf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="e9O-NV-p0W"/>
+                            <constraint firstItem="yN2-i2-Bz2" firstAttribute="centerY" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="hpK-Ya-FKJ"/>
+                            <constraint firstItem="lhS-N2-eAU" firstAttribute="top" secondItem="eA9-4T-j2k" secondAttribute="bottom" constant="16" id="jRs-Zg-04U"/>
+                            <constraint firstItem="FdV-w0-MRV" firstAttribute="top" secondItem="lhS-N2-eAU" secondAttribute="bottom" constant="16" id="pHc-NO-whY"/>
+                            <constraint firstItem="yN2-i2-Bz2" firstAttribute="leading" secondItem="FdV-w0-MRV" secondAttribute="leading" id="ttx-68-Rer"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="chooseFirstTurn" destination="lhS-N2-eAU" id="IHR-A7-bUP"/>
+                        <outlet property="playAgainButton" destination="SOx-NS-Z3g" id="Q6t-Pi-Lq7"/>
+                        <outlet property="winnerLabel" destination="Bqf-Ms-KLB" id="8ih-zl-9e4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="132" y="137.18140929535232"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="o.circle.fill" catalog="system" width="64" height="60"/>
+        <image name="xmark.circle.fill" catalog="system" width="64" height="60"/>
+    </resources>
 </document>
